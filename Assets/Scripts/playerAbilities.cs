@@ -11,8 +11,7 @@ public class playerAbilities : MonoBehaviour
 
     void Awake()
     {
-        GetNormalScale();
-        ShiftCompute();
+        InitializeScale();
     }
 
     void Update()
@@ -26,10 +25,12 @@ public class playerAbilities : MonoBehaviour
         
     }
 
-    Vector3 GetNormalScale()
+    void InitializeScale()
     {
         normalHeight = this.transform.localScale;
-        return normalHeight;
+        //size of player when ability keybinds are pressed
+        shiftS = normalHeight / 4;
+        shiftL = normalHeight * 1.5f;
     }
 
     Transform CurrentScale()
@@ -66,13 +67,6 @@ public class playerAbilities : MonoBehaviour
 
     }
 
-    void ShiftCompute()
-    {
-        //size of player when ability keybinds are pressed
-        shiftS = normalHeight / 4;
-        shiftL = normalHeight * 1.5f;
-
-    }
 
     //debugger press n to return to normal size
     //to be removed
